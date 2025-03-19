@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://*.gstatic.com https://apis.google.com;
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;
+    ">
+    <title>Connexion - Gestion Abonnements</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Customer Directory</h1>
+        </header>
+        <nav class="nav-bar">
+            <a href="dashboard.html" class="nav-btn active">🏠 Home</a>
+            <a href="add-customer.html" class="nav-btn">➕ Add Customer</a>
+            <a href="clients-list.html" class="nav-btn">📋 Customer List</a>
+            <a href="manage-rates.html" class="nav-btn">💲 Manage Rates</a>
+            <button onclick="logout()" class="nav-btn logout-btn">🔒 Logout</button>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="listSearch" placeholder="🔍 Search customers..." oninput="searchList()">
+        </div>
+        <div class="status-counts">
+            <div class="count-box count-box-important">
+                <span>Critical Subscription:</span>
+                <span id="importantSub">-</span>
+            </div>
+            <div class="count-box status-expired">
+                <span>Expired:</span>
+                <span id="expiredCount">0</span>
+            </div>
+            <div class="count-box status-critical">
+                <span>Critical:</span>
+                <span id="criticalCount">0</span>
+            </div>
+            <div class="count-box status-active">
+                <span>Active:</span>
+                <span id="activeCount">0</span>
+            </div>
+        </div>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Smartcard</th>
+                        <th>Type</th>
+                        <th>StartDate</th>
+                        <th onclick="toggleSortEndDate()">EndDate</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="homeResultsBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

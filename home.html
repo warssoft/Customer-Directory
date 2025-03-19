@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://*.gstatic.com https://apis.google.com;
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;
+    ">
+    <title>Connexion - Gestion Abonnements</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-container login-main">
+        <header class="header">
+            <h1>Subscription Manager Login</h1>
+        </header>
+        <section class="content-section">
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-actions login-actions">
+                    <button type="submit" class="action-btn primary-btn">🔑 Login</button>
+                </div>
+            </form>
+            <div class="auth-links">
+                <p>New user? <a href="register.html">Create account</a></p>
+            </div>
+        </section>
+    </div>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://*.gstatic.com https://apis.google.com;
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;
+    ">
+    <title>Liste des Clients</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Customer List</h1>
+        </header>
+        <nav class="nav-bar">
+            <a href="dashboard.html" class="nav-btn active">🏠 Home</a>
+            <a href="add-customer.html" class="nav-btn">➕ Add Customer</a>
+            <a href="clients-list.html" class="nav-btn">📋 Customer List</a>
+            <a href="manage-rates.html" class="nav-btn">💲 Manage Rates</a>
+            <button onclick="logout()" class="nav-btn logout-btn">🔒 Logout</button>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="listSearch" placeholder="🔍 Rechercher client..." oninput="searchList()">
+        </div>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Téléphone</th>
+                        <th>N° Abonnement</th>
+                        <th>Type</th>
+                        <th>Début</th>
+                        <th>Expiration</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="customerListBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

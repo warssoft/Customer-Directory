@@ -1,0 +1,7 @@
+RewriteEngine On
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://*.gstatic.com https://apis.google.com; style-src 'self'; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;"
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://*.gstatic.com https://apis.google.com; style-src 'self'; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;";
+# Rediriger toutes les requêtes vers home.html sauf pour les fichiers existants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ home.html [L]

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://*.gstatic.com https://apis.google.com;
+        style-src 'self' 'unsafe-inline';
+        connect-src 'self' https://*.firebaseio.com https://*.googleapis.com;
+    ">
+    <title>Connexion - Gestion Abonnements</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Manage Rates</h1>
+        </header>
+        <nav class="nav-bar">
+            <a href="dashboard.html" class="nav-btn active">🏠 Home</a>
+            <a href="add-customer.html" class="nav-btn">➕ Add Customer</a>
+            <a href="clients-list.html" class="nav-btn">📋 Customer List</a>
+            <a href="manage-rates.html" class="nav-btn">💲 Manage Rates</a>
+            <button onclick="logout()" class="nav-btn logout-btn">🔒 Logout</button>
+        </nav>
+        <div class="rate-management">
+            <div class="rate-box">
+                <h2>📋 Subscription Rates</h2>
+                <textarea id="classicRates" 
+                    placeholder="Example format:
+1 Month: 150 MAD
+3 Months: 400 MAD
+6 Months: 750 MAD"></textarea>
+                <div class="rate-actions">
+                    <button onclick="saveRates()" class="primary-btn">💾 Save Rates</button>
+                    <button onclick="enableEditing('classicRates')" class="action-btn">✏️ Edit Text</button>
+                </div>
+            </div>
+            <div class="rate-box">
+                <h2>🎁 Special Offers</h2>
+                <textarea id="specialOffers" 
+                    placeholder="Example format:
+New Year Offer: 1 Free Month
+Loyalty Discount: 10% Off"></textarea>
+                <div class="rate-actions">
+                    <button onclick="saveOffers()" class="primary-btn">💾 Save Offers</button>
+                    <button onclick="enableEditing('specialOffers')" class="action-btn">✏️ Edit Text</button>
+                </div>
+            </div>
+        </div>
+        <div class="backup-controls">
+            <button onclick="window.location.href='dashboard.html'" class="action-btn">🏠 Return to Home</button>
+        </div>
+    </div>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
